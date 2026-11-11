@@ -1,0 +1,66 @@
+@model LojaCupcakes.Models.CadastroViewModel
+@{
+    ViewData["Title"] = "Criar Conta";
+}
+
+<div style="max-width: 500px; margin: 40px auto; background: #FFF; border-radius: var(--radius-md); border: 1px solid var(--color-border); padding: 36px; box-shadow: var(--shadow-sm);">
+    <div style="text-align: center; margin-bottom: 24px;">
+        <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">✨</span>
+        <h2 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--color-dark);">Criar Nova Conta</h2>
+        <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+            Cadastre-se na confeitaria para fazer pedidos com agilidade.
+        </p>
+    </div>
+
+    <form asp-controller="Conta" asp-action="Cadastro" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+
+        <div asp-validation-summary="ModelOnly" class="alert-banner alert-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="Nome" class="form-label">Nome Completo *</label>
+            <input asp-for="Nome" class="form-control" placeholder="Ex: Lucas Mendes" required />
+            <span asp-validation-for="Nome" style="color: var(--color-danger); font-size: 0.8rem;"></span>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Email" class="form-label">E-mail *</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="lucas@exemplo.com" required />
+                <span asp-validation-for="Email" style="color: var(--color-danger); font-size: 0.8rem;"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Telefone" class="form-label">Telefone / WhatsApp *</label>
+                <input asp-for="Telefone" class="form-control" placeholder="(11) 98888-7777" required />
+                <span asp-validation-for="Telefone" style="color: var(--color-danger); font-size: 0.8rem;"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EnderecoPadrao" class="form-label">Endereço de Entrega Principal *</label>
+            <input asp-for="EnderecoPadrao" class="form-control" placeholder="Rua, Número, Bairro, Cidade - UF" required />
+            <span asp-validation-for="EnderecoPadrao" style="color: var(--color-danger); font-size: 0.8rem;"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Senha" class="form-label">Crie uma Senha (mínimo 6 caracteres) *</label>
+            <input asp-for="Senha" type="password" class="form-control" placeholder="••••••••" required />
+            <span asp-validation-for="Senha" style="color: var(--color-danger); font-size: 0.8rem;"></span>
+        </div>
+
+        <div style="margin-top: 24px;">
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1rem;">
+                Cadastrar e Continuar
+            </button>
+        </div>
+
+        <div style="margin-top: 20px; text-align: center; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid var(--color-border-subtle); padding-top: 16px;">
+            Já possui uma conta?
+            <a asp-controller="Conta" asp-action="Login" asp-route-returnUrl="@ViewBag.ReturnUrl" style="color: var(--color-primary); font-weight: 600;">
+                Fazer login
+            </a>
+        </div>
+    </form>
+</div>

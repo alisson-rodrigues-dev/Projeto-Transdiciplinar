@@ -1,0 +1,46 @@
+@model LojaCupcakes.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Entrar";
+}
+
+<div style="max-width: 440px; margin: 40px auto; background: #FFF; border-radius: var(--radius-md); border: 1px solid var(--color-border); padding: 36px; box-shadow: var(--shadow-sm);">
+    <div style="text-align: center; margin-bottom: 24px;">
+        <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🧁</span>
+        <h2 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--color-dark);">Acesse sua Conta</h2>
+        <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+            Entre para acompanhar seus pedidos e salvar seus endereços.
+        </p>
+    </div>
+
+    <form asp-controller="Conta" asp-action="Login" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="ReturnUrl" />
+
+        <div asp-validation-summary="ModelOnly" class="alert-banner alert-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="Email" class="form-label">E-mail Cadastrado</label>
+            <input asp-for="Email" type="email" class="form-control" placeholder="cliente@exemplo.com" required autofocus />
+            <span asp-validation-for="Email" style="color: var(--color-danger); font-size: 0.8rem;"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Senha" class="form-label">Senha</label>
+            <input asp-for="Senha" type="password" class="form-control" placeholder="••••••••" required />
+            <span asp-validation-for="Senha" style="color: var(--color-danger); font-size: 0.8rem;"></span>
+        </div>
+
+        <div style="margin-top: 24px;">
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1rem;">
+                Entrar no Sistema
+            </button>
+        </div>
+
+        <div style="margin-top: 20px; text-align: center; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid var(--color-border-subtle); padding-top: 16px;">
+            Ainda não tem conta?
+            <a asp-controller="Conta" asp-action="Cadastro" asp-route-returnUrl="@Model.ReturnUrl" style="color: var(--color-primary); font-weight: 600;">
+                Cadastre-se gratuitamente
+            </a>
+        </div>
+    </form>
+</div>

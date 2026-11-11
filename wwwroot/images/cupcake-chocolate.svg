@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cup5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D1D09" />
+      <stop offset="100%" stop-color="#1A0B04" />
+    </linearGradient>
+    <linearGradient id="frosting5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5A2E12" />
+      <stop offset="50%" stop-color="#3F1D08" />
+      <stop offset="100%" stop-color="#281104" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="20" fill="#F7F1EB"/>
+  <!-- Cup base -->
+  <polygon points="50,115 150,115 138,180 62,180" fill="url(#cup5)" />
+  <line x1="72" y1="115" x2="80" y2="180" stroke="#0E0502" stroke-width="2" />
+  <line x1="92" y1="115" x2="96" y2="180" stroke="#0E0502" stroke-width="2" />
+  <line x1="110" y1="115" x2="106" y2="180" stroke="#0E0502" stroke-width="2" />
+  <line x1="128" y1="115" x2="120" y2="180" stroke="#0E0502" stroke-width="2" />
+  <!-- Cake Swirl Dark Chocolate -->
+  <path d="M45,115 Q100,80 155,115 Q150,90 135,75 Q100,50 65,75 Q50,90 45,115 Z" fill="url(#frosting5)" />
+  <!-- Top swirl -->
+  <path d="M68,80 Q100,45 132,80 Q125,55 100,35 Q75,55 68,80 Z" fill="#3D1C08" />
+  <circle cx="100" cy="35" r="10" fill="#5A2E12" />
+  <!-- Belgian Chocolate sprinkles (granulados belga) -->
+  <line x1="75" y1="75" x2="83" y2="72" stroke="#1A0B04" stroke-width="3" stroke-linecap="round"/>
+  <line x1="90" y1="65" x2="97" y2="68" stroke="#1A0B04" stroke-width="3" stroke-linecap="round"/>
+  <line x1="115" y1="60" x2="122" y2="64" stroke="#1A0B04" stroke-width="3" stroke-linecap="round"/>
+  <line x1="108" y1="78" x2="114" y2="84" stroke="#1A0B04" stroke-width="3" stroke-linecap="round"/>
+  <line x1="85" y1="88" x2="92" y2="92" stroke="#1A0B04" stroke-width="3" stroke-linecap="round"/>
+  <line x1="125" y1="92" x2="133" y2="90" stroke="#1A0B04" stroke-width="3" stroke-linecap="round"/>
+  <line x1="68" y1="98" x2="75" y2="102" stroke="#1A0B04" stroke-width="3" stroke-linecap="round"/>
+  <line x1="102" y1="102" x2="110" y2="100" stroke="#1A0B04" stroke-width="3" stroke-linecap="round"/>
+  <!-- Gold flakes reflection -->
+  <circle cx="80" cy="80" r="1.5" fill="#E5BA73"/>
+  <circle cx="118" cy="70" r="1.5" fill="#E5BA73"/>
+  <circle cx="100" cy="45" r="2" fill="#E5BA73"/>
+</svg>

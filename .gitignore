@@ -1,0 +1,42 @@
+# =====================================================================
+# GITIGNORE — LOJA DE CUPCAKES (ASP.NET CORE C# / .NET)
+# =====================================================================
+
+# Build artifacts and compilation outputs
+bin/
+obj/
+out/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / VS Code / Rider cache & user settings
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Sensitive personal data & Official institution documents (dados pessoais mantidos fora do git)
+*.docx
+*.pdf
+PIT_atividade_print.html
+generate_pdf.py
+Dados_Pessoais_Aluno.txt
+*.env
+*.secret.json
+
+# SQLite runtime files
+*.db-wal
+*.db-shm
+
+# OS and system files
+desktop.ini
+Thumbs.db
+.DS_Store
+.keys/
+
+# Temporary files & Logs
+*.log
+~$*.docx

@@ -1,0 +1,301 @@
+<mxfile host="app.diagrams.net" modified="2026-11-05" version="24.7.17">
+  <!-- 1. CASOS DE USO -->
+  <diagram name="1. Casos de Uso" id="diag-casos-de-uso">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="900" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title1" value="Diagrama de Casos de Uso — Confeitaria Gourmet C# (.NET Core MVC)" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1A120B;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="800" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" value="Sistema Confeitaria Gourmet (ASP.NET Core MVC)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=2;dashed=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="220" y="80" width="760" height="660" as="geometry" />
+        </mxCell>
+        <!-- Atores -->
+        <mxCell id="actor_cliente" value="Cliente" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#E5BA73;strokeColor=#1A120B;" vertex="1" parent="1">
+          <mxGeometry x="80" y="280" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_operador" value="Operador / Confeitaria" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#E5BA73;strokeColor=#1A120B;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="380" width="60" height="120" as="geometry" />
+        </mxCell>
+        <!-- Casos de uso -->
+        <mxCell id="uc01" value="UC01: Consultar Vitrine dos 5 Sabores&#xa;(Doce de Leite, Nutella, Ninho c/ Morango, etc.)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C58940;fontColor=#1A120B;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="120" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc02" value="UC02: Autenticar / Gerenciar Conta&#xa;(Login, Cadastro e Sessão)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C58940;fontColor=#1A120B;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="220" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc03" value="UC03: Gerenciar Carrinho de Compras&#xa;(Adicionar, Alterar Qtd e Frete R$ 6,00)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C58940;fontColor=#1A120B;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="320" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc04" value="UC04: Realizar Checkout e Endereço&#xa;(Revisão de Pedido e Prazo 15-30min)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C58940;fontColor=#1A120B;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="430" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc05" value="UC05: Efetuar Pagamento Demonstrativo&#xa;(PIX Instantâneo ou Cartão de Crédito)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C58940;fontColor=#1A120B;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="540" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc06" value="UC06: Acompanhar Entrega em Tempo Real&#xa;(Recebido ➔ Preparo ➔ Rota ➔ Entregue)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C58940;fontColor=#1A120B;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="320" width="310" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uc07" value="UC07: Gerenciar e Atualizar Pedidos&#xa;(Painel Operador / Gestão da Loja)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C58940;fontColor=#1A120B;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="450" width="310" height="80" as="geometry" />
+        </mxCell>
+        <!-- Arestas -->
+        <mxCell id="edge1" style="endArrow=none;html=1;strokeColor=#1A120B;strokeWidth=1.5;" edge="1" parent="1" source="actor_cliente" target="uc01"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge2" style="endArrow=none;html=1;strokeColor=#1A120B;strokeWidth=1.5;" edge="1" parent="1" source="actor_cliente" target="uc02"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge3" style="endArrow=none;html=1;strokeColor=#1A120B;strokeWidth=1.5;" edge="1" parent="1" source="actor_cliente" target="uc03"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge4" style="endArrow=none;html=1;strokeColor=#1A120B;strokeWidth=1.5;" edge="1" parent="1" source="actor_cliente" target="uc04"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge5" style="endArrow=none;html=1;strokeColor=#1A120B;strokeWidth=1.5;" edge="1" parent="1" source="actor_cliente" target="uc05"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge6" style="endArrow=none;html=1;strokeColor=#1A120B;strokeWidth=1.5;" edge="1" parent="1" source="actor_cliente" target="uc06"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge7" style="endArrow=none;html=1;strokeColor=#1A120B;strokeWidth=1.5;" edge="1" parent="1" source="actor_operador" target="uc06"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge8" style="endArrow=none;html=1;strokeColor=#1A120B;strokeWidth=1.5;" edge="1" parent="1" source="actor_operador" target="uc07"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- 2. CLASSES DE DOMÍNIO / PERSISTÊNCIA (C#) -->
+  <diagram name="2. Classes de Domínio C#" id="diag-classes">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="900" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title2" value="Diagrama de Classes de Domínio e Persistência (C# ASP.NET Core MVC)" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1A120B;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="800" height="40" as="geometry" />
+        </mxCell>
+        <!-- Classe Cliente -->
+        <mxCell id="cls_cliente" value="&lt;b&gt;Cliente&lt;/b&gt;&#xa;--&#xa;+ Id: int&#xa;+ Nome: string&#xa;+ Email: string&#xa;+ SenhaHash: string&#xa;+ Telefone: string&#xa;+ EnderecoPadrao: string&#xa;+ CriadoEm: DateTime&#xa;--&#xa;+ ValidarSenha(senha: string): bool" style="shape=rect;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="240" height="170" as="geometry" />
+        </mxCell>
+        <!-- Classe Cupcake / Produto -->
+        <mxCell id="cls_produto" value="&lt;b&gt;Produto / Cupcake&lt;/b&gt;&#xa;--&#xa;+ Id: int&#xa;+ Nome: string&#xa;+ Descricao: string&#xa;+ Preco: decimal&#xa;+ Disponivel: bool&#xa;+ Categoria: string&#xa;+ ImagemUrl: string&#xa;+ CriadoEm: DateTime&#xa;--&#xa;+ ObterPrecoFormatado(): string" style="shape=rect;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="920" y="80" width="240" height="180" as="geometry" />
+        </mxCell>
+        <!-- Classe Carrinho -->
+        <mxCell id="cls_carrinho" value="&lt;b&gt;CarrinhoViewModel&lt;/b&gt;&#xa;--&#xa;+ Itens: List&lt;ItemCarrinho&gt;&#xa;+ Subtotal: decimal&#xa;+ TaxaEntrega: decimal = 6.00m&#xa;+ Total: decimal&#xa;--&#xa;+ AdicionarItem(p: Produto, qtd: int)&#xa;+ AtualizarQtd(produtoId: int, qtd: int)&#xa;+ RemoverItem(produtoId: int)&#xa;+ Limpar()" style="shape=rect;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="80" width="280" height="180" as="geometry" />
+        </mxCell>
+        <!-- Classe ItemCarrinho -->
+        <mxCell id="cls_itemc" value="&lt;b&gt;ItemCarrinho&lt;/b&gt;&#xa;--&#xa;+ ProdutoId: int&#xa;+ Nome: string&#xa;+ PrecoUnitario: decimal&#xa;+ Quantidade: int&#xa;+ ImagemUrl: string&#xa;--&#xa;+ Subtotal: decimal" style="shape=rect;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="320" width="280" height="140" as="geometry" />
+        </mxCell>
+        <!-- Classe Pedido -->
+        <mxCell id="cls_pedido" value="&lt;b&gt;Pedido&lt;/b&gt;&#xa;--&#xa;+ Id: int&#xa;+ ClienteId: int&#xa;+ DataPedido: DateTime&#xa;+ ValorProdutos: decimal&#xa;+ TaxaEntrega: decimal = 6.00m&#xa;+ ValorTotal: decimal&#xa;+ FormaPagamento: string&#xa;+ StatusPagamento: string&#xa;+ StatusEntrega: string&#xa;+ EnderecoEntrega: string&#xa;+ PrazoEstimado: string&#xa;+ Observacoes: string&#xa;--&#xa;+ AvancarStatusEntrega()" style="shape=rect;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="260" height="240" as="geometry" />
+        </mxCell>
+        <!-- Classe ItemPedido -->
+        <mxCell id="cls_itemp" value="&lt;b&gt;ItemPedido&lt;/b&gt;&#xa;--&#xa;+ Id: int&#xa;+ PedidoId: int&#xa;+ ProdutoId: int&#xa;+ Quantidade: int&#xa;+ PrecoUnitario: decimal&#xa;+ Subtotal: decimal&#xa;--&#xa;+ Pedido: Pedido&#xa;+ Produto: Produto" style="shape=rect;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="520" width="280" height="160" as="geometry" />
+        </mxCell>
+        <!-- Relacionamentos -->
+        <mxCell id="rel1" value="1" style="endArrow=none;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="cls_cliente" target="cls_pedido"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="rel1_card" value="0..*" style="edgeLabel;html=1;align=right;verticalAlign=bottom;" vertex="1" connectable="0" parent="rel1"><mxGeometry x="0.8" relative="1" as="geometry" /></mxCell>
+        <mxCell id="rel2" value="1" style="endArrow=none;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="cls_pedido" target="cls_itemp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="rel2_card" value="1..*" style="edgeLabel;html=1;align=right;verticalAlign=bottom;" vertex="1" connectable="0" parent="rel2"><mxGeometry x="0.8" relative="1" as="geometry" /></mxCell>
+        <mxCell id="rel3" value="1" style="endArrow=none;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="cls_produto" target="cls_itemp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="rel3_card" value="0..*" style="edgeLabel;html=1;align=right;verticalAlign=bottom;" vertex="1" connectable="0" parent="rel3"><mxGeometry x="0.8" relative="1" as="geometry" /></mxCell>
+        <mxCell id="rel4" value="1" style="endArrow=none;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="cls_carrinho" target="cls_itemc"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="rel4_card" value="0..*" style="edgeLabel;html=1;align=right;verticalAlign=bottom;" vertex="1" connectable="0" parent="rel4"><mxGeometry x="0.8" relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- 3. SEQUÊNCIA DE CONFIRMAÇÃO DE PEDIDO -->
+  <diagram name="3. Sequência de Confirmação" id="diag-sequencia">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="900" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title3" value="Diagrama de Sequência — Checkout e Processamento do Pedido (ASP.NET Core)" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1A120B;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="850" height="40" as="geometry" />
+        </mxCell>
+        <!-- Lifelines -->
+        <mxCell id="ll_cliente" value="Cliente&#xa;(Navegador)" style="shape=rect;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_view" value="View: Checkout&#xa;(Razor .cshtml)" style="shape=rect;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="280" y="80" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_controller" value="CheckoutController&#xa;(ASP.NET Core MVC)" style="shape=rect;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="540" y="80" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_db" value="AppDbContext&#xa;(SQLite 3FN)" style="shape=rect;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="840" y="80" width="160" height="50" as="geometry" />
+        </mxCell>
+        <!-- Linhas de vida (dashed) -->
+        <mxCell id="line1" style="dashed=1;endArrow=none;html=1;strokeColor=#C58940;" edge="1" parent="1" source="ll_cliente"><mxGeometry relative="1" as="geometry"><mxPoint x="130" y="700" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line2" style="dashed=1;endArrow=none;html=1;strokeColor=#C58940;" edge="1" parent="1" source="ll_view"><mxGeometry relative="1" as="geometry"><mxPoint x="360" y="700" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line3" style="dashed=1;endArrow=none;html=1;strokeColor=#C58940;" edge="1" parent="1" source="ll_controller"><mxGeometry relative="1" as="geometry"><mxPoint x="630" y="700" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line4" style="dashed=1;endArrow=none;html=1;strokeColor=#C58940;" edge="1" parent="1" source="ll_db"><mxGeometry relative="1" as="geometry"><mxPoint x="920" y="700" as="targetPoint" /></mxGeometry></mxCell>
+        <!-- Mensagens -->
+        <mxCell id="msg1" value="1. Preenche endereço e seleciona PIX/Cartão" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="130" y="170" as="sourcePoint" /><mxPoint x="360" y="170" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="msg2" value="2. POST /Checkout/Finalizar (Dados do Pedido)" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="360" y="220" as="sourcePoint" /><mxPoint x="630" y="220" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="msg3" value="3. Validar ModelState &amp; Itens do Carrinho" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="630" y="270" as="sourcePoint" /><mxPoint x="630" y="300" as="targetPoint" /><Array as="points"><mxPoint x="670" y="270" /><mxPoint x="670" y="300" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="msg4" value="4. Simular Autorização de Pagamento (PIX / Cartão)" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="630" y="340" as="sourcePoint" /><mxPoint x="630" y="370" as="targetPoint" /><Array as="points"><mxPoint x="670" y="340" /><mxPoint x="670" y="370" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="msg5" value="5. Gravação Atômica (Add Pedido &amp; ItensPedido)" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="630" y="420" as="sourcePoint" /><mxPoint x="920" y="420" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="msg6" value="6. SaveChangesAsync() ➔ SQLite" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="920" y="470" as="sourcePoint" /><mxPoint x="920" y="490" as="targetPoint" /><Array as="points"><mxPoint x="950" y="470" /><mxPoint x="950" y="490" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="msg7" value="7. Retorna Pedido Criado (Id gerado)" style="endArrow=open;dashed=1;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="920" y="530" as="sourcePoint" /><mxPoint x="630" y="530" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="msg8" value="8. Limpar Carrinho da Sessão" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="630" y="570" as="sourcePoint" /><mxPoint x="630" y="590" as="targetPoint" /><Array as="points"><mxPoint x="670" y="570" /><mxPoint x="670" y="590" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="msg9" value="9. RedirectToAction(&quot;Index&quot;, &quot;Rastreio&quot;, id)" style="endArrow=open;dashed=1;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="630" y="630" as="sourcePoint" /><mxPoint x="360" y="630" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="msg10" value="10. Exibe Tela de Rastreio em Tempo Real" style="endArrow=open;dashed=1;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="360" y="670" as="sourcePoint" /><mxPoint x="130" y="670" as="targetPoint" /></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- 4. ATIVIDADES DO PEDIDO -->
+  <diagram name="4. Atividades do Pedido" id="diag-atividades">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="900" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title4" value="Diagrama de Atividades — Ciclo de Vida do Pedido" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1A120B;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="act_start" value="" style="ellipse;fillColor=#1A120B;strokeColor=#1A120B;" vertex="1" parent="1">
+          <mxGeometry x="580" y="80" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="act1" value="Consultar Vitrine (5 Sabores Oficiais)&#xa;e Adicionar Cupcake ao Carrinho" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="140" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="act2" value="Revisar Carrinho de Compras&#xa;(Subtotal + Frete Fixo R$ 6,00)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="230" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="act3" value="Identificar Cliente&#xa;(Login ou Pré-cadastro)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="320" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="act_decision1" value="Dados&#xa;Válidos?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#E5BA73;strokeColor=#1A120B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="545" y="410" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="act_error" value="Exibir Mensagens de Validação e Corrigir" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3CD;strokeColor=#856404;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="190" y="420" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="act4" value="Informar Endereço e Escolher Pagamento&#xa;(PIX ou Cartão de Crédito)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="520" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="act5" value="Processar Pedido e Persistir no SQLite&#xa;(Status: RECEBIDO)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="610" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="act6" value="Acompanhar Entrega em Tempo Real&#xa;(RECEBIDO ➔ EM PREPARO ➔ EM ROTA ➔ ENTREGUE)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="700" width="330" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="act_end" value="" style="ellipse;shape=doubleEllipse;fillColor=#1A120B;strokeColor=#C58940;" vertex="1" parent="1">
+          <mxGeometry x="580" y="790" width="30" height="30" as="geometry" />
+        </mxCell>
+        <!-- Arestas -->
+        <mxCell id="a_e1" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="act_start" target="act1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a_e2" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="act1" target="act2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a_e3" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="act2" target="act3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a_e4" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="act3" target="act_decision1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a_e5" value="Não" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="act_decision1" target="act_error"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a_e6" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="act_error" target="act3"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="305" y="350" /></Array></mxGeometry></mxCell>
+        <mxCell id="a_e7" value="Sim" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="act_decision1" target="act4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a_e8" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="act4" target="act5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a_e9" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="act5" target="act6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a_e10" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="act6" target="act_end"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- 5. MAPA CONCEITUAL -->
+  <diagram name="5. Mapa Conceitual" id="diag-conceitual">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="900" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title5" value="Mapa Conceitual — Domínio do Negócio e Engenharia" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1A120B;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="c_loja" value="Confeitaria Gourmet&#xa;(Loja de Cupcakes)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1A120B;strokeColor=#C58940;fontColor=#FFFFFF;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="480" y="80" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c_catalogo" value="Catálogo Oficial&#xa;(5 Sabores Exclusivos)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="160" y="230" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_cliente" value="Cliente&#xa;(Identificado / Autenticado)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="480" y="230" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_pedido" value="Pedido Atômico&#xa;(SQLite 3FN)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="840" y="230" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_carrinho" value="Carrinho de Compras&#xa;(Itens, Qtd e Frete R$ 6,00)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="480" y="380" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_pagamento" value="Pagamento Demonstrativo&#xa;(PIX ou Cartão de Crédito)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="720" y="490" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_entrega" value="Entrega e Rastreamento&#xa;(Prazo 15-30 min / 4 Estágios)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="980" y="490" width="230" height="60" as="geometry" />
+        </mxCell>
+        <!-- Conexões -->
+        <mxCell id="ce1" value="disponibiliza" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1" source="c_loja" target="c_catalogo"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce2" value="atende" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1" source="c_loja" target="c_cliente"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce3" value="monta" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1" source="c_cliente" target="c_carrinho"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce4" value="alimenta com itens" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1" source="c_catalogo" target="c_carrinho"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce5" value="consolida em" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1" source="c_carrinho" target="c_pedido"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce6" value="valida" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1" source="c_pedido" target="c_pagamento"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce7" value="despacha para" style="endArrow=block;html=1;strokeColor=#1A120B;fontSize=12;" edge="1" parent="1" source="c_pedido" target="c_entrega"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- 6. MAPA NAVEGACIONAL -->
+  <diagram name="6. Mapa Navegacional" id="diag-navegacional">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="900" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title6" value="Mapa Navegacional da Aplicação Web (Rotas ASP.NET Core MVC)" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1A120B;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="700" height="40" as="geometry" />
+        </mxCell>
+        <!-- Telas -->
+        <mxCell id="nav_vitrine" value="&lt;b&gt;Vitrine / Home&lt;/b&gt;&#xa;URL: / ou /Home/Index&#xa;5 Sabores Gourmet (Ordem Invertida)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="90" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_carrinho" value="&lt;b&gt;Carrinho de Compras&lt;/b&gt;&#xa;URL: /Carrinho&#xa;Edição de Qtd &amp; Frete R$ 6,00" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="240" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_auth" value="&lt;b&gt;Autenticação&lt;/b&gt;&#xa;URL: /Conta/Login ou /Cadastro&#xa;Identificação de Sessão" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="240" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_checkout" value="&lt;b&gt;Checkout e Pagamento&lt;/b&gt;&#xa;URL: /Checkout&#xa;Endereço &amp; PIX / Cartão" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="840" y="240" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_rastreio" value="&lt;b&gt;Rastreamento em Tempo Real&lt;/b&gt;&#xa;URL: /Rastreio/{id}&#xa;Linha do Tempo (4 Estágios)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="840" y="420" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_conta" value="&lt;b&gt;Minha Conta / Histórico&lt;/b&gt;&#xa;URL: /Conta/Perfil&#xa;Dados Cadastrais e Pedidos Feitos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8F5;strokeColor=#C58940;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="420" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_operador" value="&lt;b&gt;Painel do Operador (Restrito)&lt;/b&gt;&#xa;URL: /Operador&#xa;Gestão e Atualização de Status" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3CD;strokeColor=#856404;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="420" width="240" height="70" as="geometry" />
+        </mxCell>
+        <!-- Navegações -->
+        <mxCell id="ne1" value="Adicionar cupcake" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="nav_vitrine" target="nav_carrinho"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ne2" value="Fazer login" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="nav_vitrine" target="nav_auth"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ne3" value="Avançar checkout" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="nav_carrinho" target="nav_checkout"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ne4" value="Confirmar pagamento" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="nav_checkout" target="nav_rastreio"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ne5" value="Acessar histórico" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="nav_vitrine" target="nav_conta"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ne6" value="Acessar painel da loja" style="endArrow=block;html=1;strokeColor=#1A120B;" edge="1" parent="1" source="nav_vitrine" target="nav_operador"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

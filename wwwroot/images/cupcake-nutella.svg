@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cup2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A2810" />
+      <stop offset="100%" stop-color="#2D1505" />
+    </linearGradient>
+    <linearGradient id="frosting2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6F4E37" />
+      <stop offset="50%" stop-color="#543D2B" />
+      <stop offset="100%" stop-color="#3C2A1E" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="20" fill="#FAF2EC"/>
+  <!-- Cup base -->
+  <polygon points="50,115 150,115 138,180 62,180" fill="url(#cup2)" />
+  <line x1="72" y1="115" x2="80" y2="180" stroke="#1F0D02" stroke-width="2" />
+  <line x1="92" y1="115" x2="96" y2="180" stroke="#1F0D02" stroke-width="2" />
+  <line x1="110" y1="115" x2="106" y2="180" stroke="#1F0D02" stroke-width="2" />
+  <line x1="128" y1="115" x2="120" y2="180" stroke="#1F0D02" stroke-width="2" />
+  <!-- Cake Swirl -->
+  <path d="M45,115 Q100,80 155,115 Q150,90 135,75 Q100,50 65,75 Q50,90 45,115 Z" fill="url(#frosting2)" />
+  <!-- Top swirl Nutella -->
+  <path d="M68,80 Q100,45 132,80 Q125,55 100,35 Q75,55 68,80 Z" fill="#4E3629" />
+  <circle cx="100" cy="35" r="10" fill="#6F4E37" />
+  <!-- Roasted Hazelnut chunks -->
+  <rect x="80" y="65" width="8" height="6" rx="2" fill="#D2B48C" transform="rotate(15 80 65)"/>
+  <rect x="110" y="72" width="7" height="6" rx="2" fill="#D2B48C" transform="rotate(-20 110 72)"/>
+  <rect x="98" y="50" width="8" height="7" rx="2" fill="#DEB887" transform="rotate(45 98 50)"/>
+  <rect x="120" y="90" width="6" height="6" rx="2" fill="#D2B48C" />
+  <rect x="70" y="92" width="7" height="5" rx="2" fill="#DEB887" />
+</svg>

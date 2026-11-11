@@ -1,0 +1,101 @@
+@model List<LojaCupcakes.Models.Produto>
+@{
+    ViewData["Title"] = "Vitrine Gourmet";
+}
+
+<!-- Hero Banner Confeitaria -->
+<section class="hero-banner">
+    <div class="hero-content">
+        <span class="hero-tag">✨ Confeitaria Fina & Artesanal</span>
+        <h2 class="hero-title">O verdadeiro sabor do cupcake gourmet artesanal.</h2>
+        <p class="hero-desc">
+            Cada receita é cuidadosamente elaborada com cacau 100%, recheios cremosos generosos e massas fofinhas que derretem na boca. Escolha seus sabores favoritos!
+        </p>
+
+        <!-- Pílulas de Destaque / Regras de Negócio -->
+        <div class="features-pills">
+            <div class="feature-pill">
+                <span>⏱</span>
+                <span>Entrega rápida em <strong>15 a 30 minutos</strong></span>
+            </div>
+            <div class="feature-pill">
+                <span>🛵</span>
+                <span>Taxa fixa de entrega local: <strong>R$ 6,00</strong></span>
+            </div>
+            <div class="feature-pill">
+                <span>💳</span>
+                <span>Pagamento via <strong>PIX</strong> ou <strong>Cartão</strong></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Catálogo Oficial de Sabores -->
+<section id="menu-section">
+    <div class="menu-header">
+        <span class="section-subtitle">Menu Exclusivo</span>
+        <h3 class="section-title">Nossos 5 Sabores de Alta Confeitaria</h3>
+        <p class="section-desc">Cardápio selecionado com os sabores mais desejados, preparados no dia com ingredientes frescos.</p>
+    </div>
+
+    <div class="products-grid">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            var p = Model[i];
+            <div class="product-card">
+                <!-- Tag de ordem do produto -->
+                <span class="card-order-tag">#@(i + 1) Gourmet</span>
+
+                <div class="product-img-box">
+                    <img src="@p.ImagemUrl" alt="Cupcake @p.Nome" loading="lazy" />
+                </div>
+
+                <div class="product-body">
+                    <h4 class="product-name">@p.Nome</h4>
+                    <p class="product-desc">@p.Descricao</p>
+
+                    <div class="product-footer">
+                        <span class="product-price">@p.PrecoFormatado</span>
+
+                        <div class="card-actions">
+                            <button type="button" class="btn btn-outline btn-view-details" data-id="@p.Id" title="Ver composição e ingredientes">
+                                Detalhes
+                            </button>
+
+                            <form asp-controller="Carrinho" asp-action="Adicionar" method="post" class="form-add-to-cart">
+                                <input type="hidden" name="produtoId" value="@p.Id" />
+                                <input type="hidden" name="quantidade" value="1" />
+                                <button type="submit" class="btn btn-primary" title="Adicionar 1 unidade ao carrinho">
+                                    + Pedir
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Modal Dinâmico de Detalhes do Produto -->
+<div class="modal-overlay" id="detailsModal">
+    <div class="modal-content">
+        <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img id="modalImg" src="/images/cupcake-default.svg" alt="" style="max-height: 150px; margin: 0 auto 16px;" />
+            <h3 id="modalTitle" style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-dark);"></h3>
+            <span id="modalPrice" style="font-size: 1.4rem; font-weight: 700; color: var(--color-primary); display: block; margin-top: 6px;"></span>
+        </div>
+        <p id="modalDesc" style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px; text-align: center;"></p>
+
+        <form asp-controller="Carrinho" asp-action="Adicionar" method="post" class="form-add-to-cart" style="display: flex; gap: 12px;">
+            <input type="hidden" name="produtoId" id="modalInputId" value="" />
+            <div class="qty-stepper" style="flex: 0 0 110px;">
+                <input type="number" name="quantidade" value="1" min="1" max="50" class="qty-input" style="width: 100%;" />
+            </div>
+            <button type="submit" class="btn btn-primary" style="flex: 1;">
+                Adicionar ao Carrinho
+            </button>
+        </form>
+    </div>
+</div>

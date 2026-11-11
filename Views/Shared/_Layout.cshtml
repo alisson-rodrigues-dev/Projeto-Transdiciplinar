@@ -1,0 +1,150 @@
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@inject LojaCupcakes.Services.CarrinhoService CarrinhoService
+
+@{
+    var usuarioNome = HttpContextAccessor.HttpContext?.Session.GetString(LojaCupcakes.Controllers.ContaController.SessionUsuarioNome);
+    var qtdCarrinho = CarrinhoService.ObterCarrinho().QuantidadeTotalItens;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Le Cupcake Gourmet</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Customizado Gourmet -->
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <!-- Topbar Acadêmica Institucional -->
+    <div class="academic-notice">
+        <div class="site-container">
+            <span>✨ PIT II — Projeto Integrador Transdisciplinar em Engenharia de Software II | Padrão MVC em C# (.NET 10)</span>
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="site-header">
+        <div class="site-container">
+            <nav class="site-nav">
+                <!-- Marca / Logo -->
+                <a asp-controller="Home" asp-action="Index" class="brand-logo">
+                    <div class="brand-icon">🧁</div>
+                    <div class="brand-text">
+                        <h1>Le Cupcake</h1>
+                        <span>Confeitaria Artesanal</span>
+                    </div>
+                </a>
+
+                <!-- Links de Navegação -->
+                <ul class="nav-links">
+                    <li><a asp-controller="Home" asp-action="Index" class="nav-link">Vitrine de Sabores</a></li>
+                    <li><a asp-controller="Operador" asp-action="Index" class="nav-link">Painel da Loja</a></li>
+                    
+                    @if (!string.IsNullOrEmpty(usuarioNome))
+                    {
+                        <li>
+                            <a asp-controller="Conta" asp-action="Index" class="user-chip">
+                                <span>👤 Olá, @usuarioNome</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Conta" asp-action="Logout" class="nav-link" style="color: var(--color-danger);">Sair</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Conta" asp-action="Login" class="user-chip">
+                                <span>👤 Entrar / Cadastrar</span>
+                            </a>
+                        </li>
+                    }
+
+                    <!-- Botão do Carrinho -->
+                    <li>
+                        <a asp-controller="Carrinho" asp-action="Index" class="nav-cart-btn">
+                            <span>🛒 Carrinho</span>
+                            <span class="cart-badge">@qtdCarrinho</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Notificações Flash TempData -->
+    <div class="site-container">
+        @if (TempData["Sucesso"] != null)
+        {
+            <div class="alert-banner alert-success">
+                <span>✔ @TempData["Sucesso"]</span>
+            </div>
+        }
+        @if (TempData["Aviso"] != null)
+        {
+            <div class="alert-banner alert-warning">
+                <span>⚠ @TempData["Aviso"]</span>
+            </div>
+        }
+        @if (TempData["Erro"] != null)
+        {
+            <div class="alert-banner alert-danger">
+                <span>✖ @TempData["Erro"]</span>
+            </div>
+        }
+    </div>
+
+    <!-- Corpo Principal da Página -->
+    <main class="site-container">
+        @RenderBody()
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+        <div class="site-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>🧁 Le Cupcake Gourmet</h4>
+                    <p>Produzimos artesanalmente cada cupcake com ingredientes selecionados, cacau nobre e amor pela confeitaria fina.</p>
+                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--color-accent);">
+                        🚀 Entrega expressa na região próxima em 15 a 30 minutos com taxa fixa de R$ 6,00.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>Navegação Rápida</h5>
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Index">Vitrine</a></li>
+                        <li><a asp-controller="Carrinho" asp-action="Index">Meu Carrinho</a></li>
+                        <li><a asp-controller="Conta" asp-action="Index">Minha Conta</a></li>
+                        <li><a asp-controller="Operador" asp-action="Index">Painel do Operador</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Projeto Acadêmico</h5>
+                    <ul>
+                        <li><strong>Disciplina:</strong> PIT II (Turma 001)</li>
+                        <li><strong>Arquitetura:</strong> ASP.NET Core MVC</li>
+                        <li><strong>Banco de Dados:</strong> SQLite 3FN</li>
+                        <li><strong>Ambiente:</strong> Localhost (.NET 10)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; @DateTime.Now.Year Le Cupcake Gourmet — Trabalho acadêmico desenvolvido em C# com código aberto no GitHub.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/js/site.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

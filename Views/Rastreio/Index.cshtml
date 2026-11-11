@@ -1,0 +1,105 @@
+@model LojaCupcakes.Models.RastreioViewModel
+@{
+    ViewData["Title"] = $"Rastreio Pedido #{Model.Pedido.Id:D4}";
+}
+
+<div class="tracking-card">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--color-border); padding-bottom: 20px; margin-bottom: 28px;">
+        <div>
+            <span class="hero-tag" style="margin-bottom: 8px;">Acompanhamento em Tempo Real</span>
+            <h2 style="font-family: var(--font-serif); font-size: 2rem; color: var(--color-dark);">
+                Pedido #@Model.Pedido.Id.ToString("D4")
+            </h2>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                Realizado em @Model.Pedido.DataPedido.ToString("dd/MM/yyyy HH:mm") • Pagamento aprovado via <strong>@Model.Pedido.FormaPagamento</strong>
+            </p>
+        </div>
+        <div style="text-align: right;">
+            <span style="display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600;">Prazo Estimado</span>
+            <strong style="font-size: 1.3rem; color: var(--color-primary);">@Model.Pedido.PrazoEstimado</strong>
+        </div>
+    </div>
+
+    <!-- Linha do Tempo Visual dos 4 Estágios -->
+    <div class="timeline-steps">
+        <div class="step-item @(Model.EtapaAtual >= 1 ? (Model.EtapaAtual == 1 ? "active" : "completed") : "")">
+            <div class="step-icon">1</div>
+            <div class="step-title">Recebido</div>
+            <small style="color: var(--color-text-muted); font-size: 0.75rem;">Cozinha notificada</small>
+        </div>
+        <div class="step-item @(Model.EtapaAtual >= 2 ? (Model.EtapaAtual == 2 ? "active" : "completed") : "")">
+            <div class="step-icon">2</div>
+            <div class="step-title">Em Preparo</div>
+            <small style="color: var(--color-text-muted); font-size: 0.75rem;">Confeitando cupcakes</small>
+        </div>
+        <div class="step-item @(Model.EtapaAtual >= 3 ? (Model.EtapaAtual == 3 ? "active" : "completed") : "")">
+            <div class="step-icon">3</div>
+            <div class="step-title">Em Rota</div>
+            <small style="color: var(--color-text-muted); font-size: 0.75rem;">Entregador a caminho</small>
+        </div>
+        <div class="step-item @(Model.EtapaAtual >= 4 ? "completed" : "")">
+            <div class="step-icon">4</div>
+            <div class="step-title">Entregue</div>
+            <small style="color: var(--color-text-muted); font-size: 0.75rem;">Bom apetite!</small>
+        </div>
+    </div>
+
+    <div style="background: var(--color-bg); border-radius: var(--radius-sm); padding: 18px 22px; margin-bottom: 28px; display: flex; align-items: center; justify-content: space-between;">
+        <div>
+            <strong style="color: var(--color-dark); font-size: 1.05rem; display: block;">Situação Atual:</strong>
+            <span style="color: var(--color-primary); font-weight: 600;">@Model.EtapaDescricao</span>
+        </div>
+        <a asp-action="Index" asp-route-id="@Model.Pedido.Id" class="btn btn-outline" style="font-size: 0.85rem; padding: 8px 14px;">
+            🔄 Atualizar Status
+        </a>
+    </div>
+
+    <!-- Detalhes do Endereço e Itens -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div style="background: #FFF; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 20px;">
+            <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 12px; color: var(--color-dark);">
+                📍 Endereço de Entrega
+            </h4>
+            <p style="font-size: 0.95rem; color: var(--color-text); margin-bottom: 6px;">
+                <strong>Destinatário:</strong> @Model.Pedido.Cliente?.Nome
+            </p>
+            <p style="font-size: 0.95rem; color: var(--color-text); margin-bottom: 6px;">
+                <strong>Local:</strong> @Model.Pedido.EnderecoEntrega
+            </p>
+            @if (!string.IsNullOrEmpty(Model.Pedido.Observacoes))
+            {
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 8px;">
+                    <em>Obs: @Model.Pedido.Observacoes</em>
+                </p>
+            }
+        </div>
+
+        <div style="background: #FFF; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 20px;">
+            <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 12px; color: var(--color-dark);">
+                🧾 Itens do Pedido
+            </h4>
+            <div style="max-height: 140px; overflow-y: auto; margin-bottom: 12px;">
+                @foreach (var it in Model.Pedido.Itens)
+                {
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+                        <span>@it.Quantidade x @(it.Produto?.Nome ?? "Cupcake")</span>
+                        <strong>@it.SubtotalFormatado</strong>
+                    </div>
+                }
+            </div>
+            <div style="border-top: 1px solid var(--color-border-subtle); padding-top: 10px; display: flex; justify-content: space-between; font-weight: 700; color: var(--color-dark);">
+                <span>Total com Frete (R$ 6,00):</span>
+                <span style="color: var(--color-primary);">@Model.Pedido.TotalFormatado</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 32px;">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-primary" style="margin-right: 12px;">
+            Voltar para a Vitrine
+        </a>
+        <a asp-controller="Conta" asp-action="Index" class="btn btn-outline">
+            Ver Meus Pedidos Anteriores
+        </a>
+    </div>
+</div>
