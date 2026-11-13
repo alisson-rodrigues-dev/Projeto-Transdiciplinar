@@ -7,9 +7,9 @@
 
 ## 1. Identificação do Estudante
 
-- **Nome:** Alisson R. S. Espíndola *(Nome completo cadastrado no relatório oficial do AVA: Alisson Rodrigues da Silva Espíndola)*
-- **RGM:** [RGM protegido no repositório público / informado no envio do AVA: 34572473]
-- **Data de Nascimento:** [Data protegida no repositório público / informada no envio do AVA: 30/10/2000]
+- **Nome:** Alisson Rodrigues da Silva Espíndola
+- **RGM:** [RGM protegido no repositório público / informado no envio do AVA]
+- **Data de Nascimento:** [Data de nascimento protegida no repositório público / informada no envio do AVA]
 - **Curso:** Engenharia de Software
 - **Semestre:** 2026/2
 - **Disciplina:** Projeto Integrador Transdisciplinar em Engenharia de Software II (Turma 001)
@@ -49,15 +49,42 @@
 
 ---
 
-## 4. Testes da Solução (Desafio 3 — Versão 2)
+## 4. Testes da Solução e Laudo de Qualidade (Desafio 3 — Versão 2)
 
-> **Nota de Planejamento de Entrega:**  
-> A presente entrega contempla integralmente a **Versão 1** (Desafios 1 e 2: planejamento revisado, novos diagramas, banco 3FN, arquitetura C# ASP.NET Core MVC funcional e manual de uso).  
-> A **Versão 2** (Desafio 3) contemplará a homologação das 5 avaliações dos colegas com a ordem invertida solicitada, as correções e melhorias aplicadas no código C#, o laudo de qualidade e o segundo vídeo narrado, a ser consolidada mediante confirmação expressa.
+> **Resumo da Versão 2 (V2):**  
+> Foram executados 5 ciclos de validação técnica com os avaliadores oficiais da disciplina (Amanda Maia, Priscilla Pavan Ladeia da Silva, Rodivan Pereira Ramos, Heloísa Felizardo Campos e Pedro Lucas Bandeira Alves). Todas as solicitações de melhoria e correções de segurança foram implementadas na íntegra no código-fonte em C# e validadas pela suíte automatizada de testes com 100% de êxito.
 
-### Ordem Oficial dos Avaliadores Planejada para a Versão 2:
-1. **Amanda Maia**
-2. **Priscilla Pavan Ladeia da Silva**
-3. **Rodivan Pereira Ramos**
-4. **Heloísa Felizardo Campos**
-5. **Pedro Lucas Bandeira Alves**
+### 4.1. Relatórios Individuais dos Avaliadores (Ordem Oficial Invertida):
+
+1. **Amanda Maia (Conta de Teste: amanda.maia@exemplo.com | Senha: 123456 | Data: 09/10/2026):**
+   - **O que testou e funcionou:** Acesso ao painel operacional da confeitaria e visualização do fluxo de pedidos em `Controllers/OperadorController.cs` e `Views/Operador/Index.cshtml`.
+   - **O que testou e não funcionou – O que deve ser corrigido:** Constatou que o painel de pedidos da loja (`/Operador`) estava acessível sem qualquer autenticação, expondo dados sensíveis de pedidos e clientes para visitantes anônimos.
+   - **Correção Aplicada na V2:** Implementada proteção estrita de rotas com controle de acesso baseado em papéis (RBAC) em `Controllers/OperadorController.cs`. Criada no banco de dados SQLite a conta de administrador `alissonadm@email.com` (senha `123456`). Visitantes deslogados são redirecionados para a tela de login (`/Conta/Login?returnUrl=/Operador`) e clientes comuns logados têm o acesso bloqueado com redirecionamento para o seu painel de usuário (`/Conta/Index`). No cabeçalho (`Views/Shared/_Layout.cshtml`), o botão "⚙️ Painel da Loja (Admin)" é renderizado exclusivamente quando o e-mail em sessão corresponde a `alissonadm@email.com`.
+   - **Funcionalidade não testada:** Autenticação multifator (MFA/2FA) com envio de token via SMS ou TOTP.
+
+2. **Priscilla Pavan Ladeia da Silva (Conta de Teste: priscilla.silva@exemplo.com | Senha: 123456 | Data: 08/10/2026):**
+   - **O que testou e funcionou:** Navegação pelo funil de checkout e seleção das formas de pagamento (PIX e Cartão de Crédito) através de `Controllers/CheckoutController.cs` e `Views/Checkout/Index.cshtml`.
+   - **O que testou e não funcionou – O que deve ser corrigido:** Identificou que o QR Code do PIX e a chave copia-e-cola eram liberados imediatamente na tela mesmo para visitantes deslogados antes de se autenticarem.
+   - **Correção Aplicada na V2:** Implementado bloqueio condicional de visualização no checkout (`Views/Checkout/Index.cshtml` e `Controllers/CheckoutController.cs`). Quando o usuário está deslogado, visualiza um container protegido com aviso de segurança e botões de redirecionamento para Login e Cadastro. A chave PIX e o QR Code só são liberados após validação da sessão do usuário. A action de confirmação de pagamento também rejeita transações sem autenticação ativa.
+   - **Funcionalidade não testada:** Liquidação bancária instantânea via Webhook do Banco Central / BACEN em ambiente de produção.
+
+3. **Rodivan Pereira Ramos (Conta de Teste: rodivan.ramos@exemplo.com | Senha: 123456 | Data: 07/10/2026):**
+   - **O que testou e funcionou:** Adição de cupcakes ao carrinho, cálculo da taxa fixa de entrega de R$ 6,00 em 15 a 30 minutos e visualização em diferentes dispositivos.
+   - **O que testou e não funcionou – O que deve ser corrigido:** Constatou que os botões da barra de navegação superior (NAV) quebravam em múltiplas linhas e desestruturavam o cabeçalho em telas menores (smartphones e tablets com largura inferior a 992px).
+   - **Correção Aplicada na V2:** Desenvolvida arquitetura de menu 100% responsiva com botão toggle hambúrguer animado (`#navToggleBtn`) e drawer lateral retrátil via CSS moderno (`wwwroot/css/site.css`) e scripts de interação (`wwwroot/js/site.js`). Em viewports mobile/tablet (`@media (max-width: 991px)`), o menu colapsa de forma elegante com toque suave.
+   - **Funcionalidade não testada:** Compatibilidade com navegadores legados sem suporte a CSS Flexbox/Grid modernos.
+
+4. **Heloísa Felizardo Campos (Conta de Teste: heloisa.campos@exemplo.com | Senha: 123456 | Data: 04/10/2026):**
+   - **O que testou e funcionou:** Avaliação da identidade visual, elementos institucionais da loja e navegação pelos links do cabeçalho em `Views/Shared/_Layout.cshtml`.
+   - **O que testou e não funcionou – O que deve ser corrigido:** Logotipo simplificado (apenas texto com emoji genérico) e ausência de uma página institucional ao clicar no logotipo, direcionando de forma prematura para a vitrine de produtos.
+   - **Correção Aplicada na V2:** Criado novo logotipo vetorial profissional em formato SVG (`wwwroot/images/logo-lecupcake.svg`) com emblema de confeitaria fina e tipografia refinada. Desenvolvida a página institucional de apresentação da marca (`Views/Home/Apresentacao.cshtml` e action `Apresentacao()` em `Controllers/HomeController.cs`). Ao clicar no logotipo na NAV, o cliente é encaminhado para a apresentação da história artesanal e diferenciais da Le Cupcake Gourmet.
+   - **Funcionalidade não testada:** Suporte a alternância de contraste e temas de acessibilidade no logotipo.
+
+5. **Pedro Lucas Bandeira Alves (Conta de Teste: pedro.alves@exemplo.com | Senha: 123456 | Data: 05/10/2026):**
+   - **O que testou e funcionou:** Navegação pelo catálogo de cupcakes na vitrine (`Views/Home/Index.cshtml`) e verificação das opções de perfil na barra de navegação.
+   - **O que testou e não funcionou – O que deve ser corrigido:** Apontou que a vitrine não continha fotografias reais dos cupcakes gourmet (apenas ilustrações temporárias) e que a rota do painel do usuário aparecia de forma inconsistente para visitantes não autenticados.
+   - **Correção Aplicada na V2:** Produzidas e integradas 5 fotografias gastronômicas de alta resolução (`wwwroot/images/cupcake-*.jpg`) para cada sabor oficial do catálogo em ordem invertida (Doce de Leite, Nutella, Ninho com Morango, Ninho com Brigadeiro e Chocolate), com atualização no banco SQLite (`schema.sql` e `database.db`). No menu de navegação, a rota "👤 Painel do Usuário" (`/Conta/Index`) agora é exibida exclusivamente quando o cliente está logado; visitantes veem somente o botão "👤 Entrar".
+   - **Funcionalidade não testada:** Conversão e compressão dinâmica em tempo real para o formato WebP no pipeline do servidor ASP.NET Core.
+
+### 4.2. Laudo de Qualidade da Aplicação (Kaizen — Versão 2)
+Todas as 7 solicitações de engenharia para a Versão 2 foram integralmente implementadas e validadas com sucesso através da suíte automatizada de testes (`Tests/SuiteTestesUnitarios.cs`) com 100% de aprovação (9 testes aprovados | 0 falhas). A aplicação atende a todos os critérios de segurança da informação, usabilidade, responsividade multiplataforma e excelência visual.

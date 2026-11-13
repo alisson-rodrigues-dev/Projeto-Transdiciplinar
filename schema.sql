@@ -85,12 +85,16 @@ CREATE INDEX IF NOT EXISTS idx_itens_pedido_produto ON ItensPedido(ProdutoId);
 -- =====================================================================
 
 INSERT INTO Produtos (Id, Nome, Descricao, Preco, Disponivel, ImagemUrl) VALUES
-(1, 'Doce de Leite', 'Massa de especiarias suaves com toque de canela, recheio e cobertura generosa de doce de leite caseiro cremoso polvilhado com canela.', 13.50, 1, '/images/cupcake-doce-de-leite.svg'),
-(2, 'Nutella', 'Massa de cacau nobre, recheio puro de creme de avelã Nutella e cobertura de brigadeiro de Nutella com finalização em avelãs picadas tostadas.', 16.00, 1, '/images/cupcake-nutella.svg'),
-(3, 'Ninho com Morango', 'Massa leve de baunilha, recheio de geleia artesanal de morangos frescos e cobertura aveludada de mousse de leite Ninho finalizada com morango fresco.', 15.00, 1, '/images/cupcake-ninho-morango.svg'),
-(4, 'Ninho com Brigadeiro', 'Massa amanteigada de baunilha, recheio generoso de leite Ninho cremoso e cobertura dupla com brigadeiro tradicional e brigadeiro de Ninho.', 14.00, 1, '/images/cupcake-ninho-brigadeiro.svg'),
-(5, 'Chocolate', 'Massa fofinha de cacau nobre 100%, recheio cremoso de ganache de chocolate meio amargo e cobertura generosa de brigadeiro gourmet com granulado belga.', 13.00, 1, '/images/cupcake-chocolate.svg');
+(1, 'Doce de Leite', 'Massa de especiarias suaves com toque de canela, recheio e cobertura generosa de doce de leite caseiro cremoso polvilhado com canela.', 13.50, 1, '/images/cupcake-doce-de-leite.jpg'),
+(2, 'Nutella', 'Massa de cacau nobre, recheio puro de creme de avelã Nutella e cobertura de brigadeiro de Nutella com finalização em avelãs picadas tostadas.', 16.00, 1, '/images/cupcake-nutella.jpg'),
+(3, 'Ninho com Morango', 'Massa leve de baunilha, recheio de geleia artesanal de morangos frescos e cobertura aveludada de mousse de leite Ninho finalizada com morango fresco.', 15.00, 1, '/images/cupcake-ninho-morango.jpg'),
+(4, 'Ninho com Brigadeiro', 'Massa amanteigada de baunilha, recheio generoso de leite Ninho cremoso e cobertura dupla com brigadeiro tradicional e brigadeiro de Ninho.', 14.00, 1, '/images/cupcake-ninho-brigadeiro.jpg'),
+(5, 'Chocolate', 'Massa fofinha de cacau nobre 100%, recheio cremoso de ganache de chocolate meio amargo e cobertura generosa de brigadeiro gourmet com granulado belga.', 13.00, 1, '/images/cupcake-chocolate.jpg');
 
 -- Cliente padrão de teste inicial
 INSERT INTO Clientes (Id, Nome, Email, SenhaHash, Telefone, EnderecoPadrao) VALUES
 (1, 'Cliente Demonstração', 'cliente@exemplo.com', '123456', '(11) 98765-4321', 'Rua das Confeitarias, 100, Bairro Jardim Doce - SP');
+
+-- Administrador da Confeitaria (Gestão Operacional na V2)
+INSERT INTO Clientes (Id, Nome, Email, SenhaHash, Telefone, EnderecoPadrao) VALUES
+(2, 'Alisson Administrador', 'alissonadm@email.com', '123456', '(11) 99999-0001', 'Av. Central, 1000 - Gestão da Loja');

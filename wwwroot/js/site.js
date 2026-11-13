@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAddToCartAjax();
     initProductModal();
     initPaymentTabs();
+    initResponsiveNav();
 });
 
 // Toast flutuante de notificação
@@ -174,4 +175,22 @@ function copiarChavePix() {
         navigator.clipboard.writeText(input.value);
         showToast('Chave PIX copiada para a área de transferência!', 'success');
     }
+}
+
+// Menu Hamburguer Responsivo para Telas Menores
+function initResponsiveNav() {
+    const navToggleBtn = document.getElementById('navToggleBtn');
+    const navMenu = document.getElementById('navMenu');
+    if (!navToggleBtn || !navMenu) return;
+
+    navToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !navToggleBtn.contains(e.target)) {
+            navMenu.classList.remove('show');
+        }
+    });
 }

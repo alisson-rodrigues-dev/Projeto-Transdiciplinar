@@ -15,6 +15,20 @@ public class OperadorController : Controller
 
     public IActionResult Index()
     {
+        var clienteId = HttpContext.Session.GetInt32(ContaController.SessionUsuarioId);
+        if (!clienteId.HasValue)
+        {
+            TempData["Erro"] = "Acesso restrito: Faça login com a conta de administrador para acessar o Painel da Loja.";
+            return RedirectToAction("Login", "Conta", new { returnUrl = "/Operador" });
+        }
+
+        var clienteEmail = HttpContext.Session.GetString(ContaController.SessionUsuarioEmail);
+        if (!string.Equals(clienteEmail, ContaController.EmailAdmin, StringComparison.OrdinalIgnoreCase))
+        {
+            TempData["Erro"] = "Acesso negado: Apenas a conta de administrador (alissonadm@email.com) tem permissão para acessar o Painel da Loja.";
+            return RedirectToAction("Index", "Conta");
+        }
+
         var pedidos = _db.ObterTodosPedidos();
         var vm = new OperadorViewModel
         {
@@ -27,6 +41,19 @@ public class OperadorController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult AtualizarStatus(int pedidoId, string novoStatus)
     {
+        var clienteId = HttpContext.Session.GetInt32(ContaController.SessionUsuarioId);
+        if (!clienteId.HasValue)
+        {
+            return RedirectToAction("Login", "Conta", new { returnUrl = "/Operador" });
+        }
+
+        var clienteEmail = HttpContext.Session.GetString(ContaController.SessionUsuarioEmail);
+        if (!string.Equals(clienteEmail, ContaController.EmailAdmin, StringComparison.OrdinalIgnoreCase))
+        {
+            TempData["Erro"] = "Acesso negado: Apenas o administrador pode alterar o status de pedidos.";
+            return RedirectToAction("Index", "Conta");
+        }
+
         var statusValidos = new[] { "RECEBIDO", "PREPARANDO", "EM_ROTA", "ENTREGUE" };
         if (!statusValidos.Contains(novoStatus))
         {

@@ -36,6 +36,12 @@ public class HomeController : Controller
 
     public IActionResult Sobre()
     {
+        return RedirectToAction("Apresentacao");
+    }
+
+    public IActionResult Apresentacao()
+    {
+        ViewBag.QtdCarrinho = _carrinho.ObterCarrinho().QuantidadeTotalItens;
         return View();
     }
 }

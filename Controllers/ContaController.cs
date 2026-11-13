@@ -10,6 +10,8 @@ public class ContaController : Controller
     public const string SessionUsuarioId = "Usuario_Id";
     public const string SessionUsuarioNome = "Usuario_Nome";
     public const string SessionUsuarioEmail = "Usuario_Email";
+    public const string SessionUsuarioIsAdmin = "Usuario_IsAdmin";
+    public const string EmailAdmin = "alissonadm@email.com";
 
     public ContaController(DatabaseHelper db)
     {
@@ -43,11 +45,15 @@ public class ContaController : Controller
         }
 
         // Salvar sessão do cliente autenticado
+        bool isAdmin = string.Equals(cliente.Email, EmailAdmin, StringComparison.OrdinalIgnoreCase);
         HttpContext.Session.SetInt32(SessionUsuarioId, cliente.Id);
         HttpContext.Session.SetString(SessionUsuarioNome, cliente.Nome);
         HttpContext.Session.SetString(SessionUsuarioEmail, cliente.Email);
+        HttpContext.Session.SetString(SessionUsuarioIsAdmin, isAdmin ? "true" : "false");
 
-        TempData["Sucesso"] = $"Bem-vindo de volta, {cliente.Nome}!";
+        TempData["Sucesso"] = isAdmin 
+            ? $"Bem-vindo, Administrador {cliente.Nome}! Painel de gestão liberado." 
+            : $"Bem-vindo de volta, {cliente.Nome}!";
 
         if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
         {
@@ -95,6 +101,7 @@ public class ContaController : Controller
         HttpContext.Session.SetInt32(SessionUsuarioId, novoId);
         HttpContext.Session.SetString(SessionUsuarioNome, novoCliente.Nome);
         HttpContext.Session.SetString(SessionUsuarioEmail, novoCliente.Email);
+        HttpContext.Session.SetString(SessionUsuarioIsAdmin, "false");
 
         TempData["Sucesso"] = "Cadastro realizado com sucesso! Aproveite nossos cupcakes gourmet.";
 
@@ -111,6 +118,7 @@ public class ContaController : Controller
         HttpContext.Session.Remove(SessionUsuarioId);
         HttpContext.Session.Remove(SessionUsuarioNome);
         HttpContext.Session.Remove(SessionUsuarioEmail);
+        HttpContext.Session.Remove(SessionUsuarioIsAdmin);
 
         TempData["Aviso"] = "Você encerrou sua sessão.";
         return RedirectToAction("Index", "Home");

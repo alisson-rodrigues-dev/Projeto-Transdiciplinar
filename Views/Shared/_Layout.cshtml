@@ -3,7 +3,12 @@
 @inject LojaCupcakes.Services.CarrinhoService CarrinhoService
 
 @{
-    var usuarioNome = HttpContextAccessor.HttpContext?.Session.GetString(LojaCupcakes.Controllers.ContaController.SessionUsuarioNome);
+    var session = HttpContextAccessor.HttpContext?.Session;
+    var usuarioId = session?.GetInt32(LojaCupcakes.Controllers.ContaController.SessionUsuarioId);
+    var usuarioNome = session?.GetString(LojaCupcakes.Controllers.ContaController.SessionUsuarioNome);
+    var usuarioEmail = session?.GetString(LojaCupcakes.Controllers.ContaController.SessionUsuarioEmail);
+    var estaLogado = usuarioId.HasValue;
+    var isAdmin = string.Equals(usuarioEmail, LojaCupcakes.Controllers.ContaController.EmailAdmin, StringComparison.OrdinalIgnoreCase);
     var qtdCarrinho = CarrinhoService.ObterCarrinho().QuantidadeTotalItens;
 }
 
@@ -34,36 +39,42 @@
     <header class="site-header">
         <div class="site-container">
             <nav class="site-nav">
-                <!-- Marca / Logo -->
-                <a asp-controller="Home" asp-action="Index" class="brand-logo">
-                    <div class="brand-icon">🧁</div>
-                    <div class="brand-text">
-                        <h1>Le Cupcake</h1>
-                        <span>Confeitaria Artesanal</span>
-                    </div>
+                <!-- Marca / Logo Profissional (Direciona para a Apresentação da Marca na V2) -->
+                <a asp-controller="Home" asp-action="Apresentacao" class="brand-logo" title="Conheça a história e apresentação da marca Le Cupcake">
+                    <img src="~/images/logo-lecupcake.svg" alt="Le Cupcake Gourmet" class="brand-logo-img" />
                 </a>
 
-                <!-- Links de Navegação -->
-                <ul class="nav-links">
-                    <li><a asp-controller="Home" asp-action="Index" class="nav-link">Vitrine de Sabores</a></li>
-                    <li><a asp-controller="Operador" asp-action="Index" class="nav-link">Painel da Loja</a></li>
+                <!-- Botão Toggle Hamburguer para Dispositivos Móveis -->
+                <button type="button" class="nav-toggle-btn" id="navToggleBtn" aria-label="Abrir menu de navegação">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+
+                <!-- Links de Navegação Responsivos -->
+                <ul class="nav-links" id="navMenu">
+                    <li><a asp-controller="Home" asp-action="Apresentacao" class="nav-link">Apresentação</a></li>
+                    <li><a asp-controller="Home" asp-action="Index" class="nav-link">Cardápio & Vitrine</a></li>
+                    <li><a asp-controller="Rastreio" asp-action="Index" class="nav-link">Rastrear Pedido</a></li>
                     
-                    @if (!string.IsNullOrEmpty(usuarioNome))
+                    @if (estaLogado)
                     {
+                        <li><a asp-controller="Conta" asp-action="Index" class="nav-link">👤 Painel do Usuário</a></li>
+
+                        @if (isAdmin)
+                        {
+                            <li><a asp-controller="Operador" asp-action="Index" class="nav-link nav-link-admin">⚙️ Painel da Loja (Admin)</a></li>
+                        }
+
                         <li>
-                            <a asp-controller="Conta" asp-action="Index" class="user-chip">
-                                <span>👤 Olá, @usuarioNome</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a asp-controller="Conta" asp-action="Logout" class="nav-link" style="color: var(--color-danger);">Sair</a>
+                            <a asp-controller="Conta" asp-action="Logout" class="nav-link nav-link-danger">Sair</a>
                         </li>
                     }
                     else
                     {
                         <li>
                             <a asp-controller="Conta" asp-action="Login" class="user-chip">
-                                <span>👤 Entrar / Cadastrar</span>
+                                <span>👤 Entrar</span>
                             </a>
                         </li>
                     }
@@ -71,7 +82,8 @@
                     <!-- Botão do Carrinho -->
                     <li>
                         <a asp-controller="Carrinho" asp-action="Index" class="nav-cart-btn">
-                            <span>🛒 Carrinho</span>
+                            <span>🛒</span>
+                            <span class="cart-label">Carrinho</span>
                             <span class="cart-badge">@qtdCarrinho</span>
                         </a>
                     </li>
@@ -124,7 +136,10 @@
                         <li><a asp-controller="Home" asp-action="Index">Vitrine</a></li>
                         <li><a asp-controller="Carrinho" asp-action="Index">Meu Carrinho</a></li>
                         <li><a asp-controller="Conta" asp-action="Index">Minha Conta</a></li>
-                        <li><a asp-controller="Operador" asp-action="Index">Painel do Operador</a></li>
+                        @if (isAdmin)
+                        {
+                            <li><a asp-controller="Operador" asp-action="Index">Painel da Loja (Admin)</a></li>
+                        }
                     </ul>
                 </div>
                 <div class="footer-col">

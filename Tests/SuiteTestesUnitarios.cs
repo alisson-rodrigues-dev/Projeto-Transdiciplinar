@@ -144,6 +144,29 @@ public static class SuiteTestesUnitarios
                 throw new Exception("Lista de pedidos retornou nula");
         });
 
+        // Teste 8: Validação da Conta de Administrador para Gestão da Loja (V2)
+        Executar("8. RBAC / Autenticação: Conta de Administrador alissonadm@email.com", () =>
+        {
+            var admin = db.ObterClientePorEmail("alissonadm@email.com");
+            if (admin == null)
+                throw new Exception("Conta de administrador 'alissonadm@email.com' não cadastrada no SQLite");
+            if (admin.SenhaHash != "123456")
+                throw new Exception("Credencial de acesso do administrador incorreta");
+        });
+
+        // Teste 9: Ativos Visuais da V2 (Fotografias Reais dos Cupcakes e Logotipo da Marca)
+        Executar("9. Ativos V2: Presença de Imagens dos Cupcakes e Logotipo Vetorial", () =>
+        {
+            var produtos = db.ObterProdutos();
+            foreach (var p in produtos)
+            {
+                if (string.IsNullOrEmpty(p.ImagemUrl) || !p.ImagemUrl.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase))
+                {
+                    throw new Exception($"Produto {p.Nome} sem fotografia JPEG configurada ({p.ImagemUrl})");
+                }
+            }
+        });
+
         Console.WriteLine("\n---------------------------------------------------------------------");
         Console.ForegroundColor = falhas == 0 ? ConsoleColor.Green : ConsoleColor.Red;
         Console.WriteLine($"RESULTADO FINAL DOS TESTES: {aprovados} Aprovados | {falhas} Falhas");

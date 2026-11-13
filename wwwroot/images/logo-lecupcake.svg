@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 95" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C158" />
+      <stop offset="50%" stop-color="#C59B27" />
+      <stop offset="100%" stop-color="#9A7416" />
+    </linearGradient>
+    <linearGradient id="cacaoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A2C2A" />
+      <stop offset="100%" stop-color="#241412" />
+    </linearGradient>
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#C59B27" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Emblema de Confeitaria Fina / Cupcake Monograma -->
+  <g transform="translate(15, 8)">
+    <!-- Círculo de Brasão com borda dupla dourada -->
+    <circle cx="40" cy="40" r="38" fill="#FDFBF7" stroke="url(#goldGrad)" stroke-width="2" />
+    <circle cx="40" cy="40" r="34" fill="none" stroke="#EADED7" stroke-width="1" stroke-dasharray="2,2" />
+    
+    <!-- Coroa Nobre no topo -->
+    <path d="M30,22 L33,26 L40,20 L47,26 L50,22 L48,28 L32,28 Z" fill="url(#goldGrad)" />
+    <circle cx="40" cy="18" r="1.5" fill="#C59B27" />
+    <circle cx="30" cy="20" r="1.2" fill="#C59B27" />
+    <circle cx="50" cy="20" r="1.2" fill="#C59B27" />
+
+    <!-- Cobertura Espiralada Gourmet do Cupcake -->
+    <path d="M26,45 C24,35 32,29 40,29 C48,29 56,35 54,45 C57,47 58,52 54,54 C51,55 49,54 48,54 C45,56 42,56 40,56 C38,56 35,56 32,54 C31,54 29,55 26,54 C22,52 23,47 26,45 Z" fill="url(#goldGrad)" filter="url(#subtleGlow)" />
+    
+    <!-- Textura de Volutas da Cobertura -->
+    <path d="M30,42 C33,36 40,34 44,38 C47,41 51,43 53,42" fill="none" stroke="#FFF" stroke-width="1.2" stroke-linecap="round" opacity="0.8" />
+    <path d="M32,49 C36,46 44,46 48,50" fill="none" stroke="#9A7416" stroke-width="1.2" stroke-linecap="round" opacity="0.6" />
+
+    <!-- Forminha Plissada Clássica -->
+    <path d="M26,55 L30,68 C31,70 33,71 35,71 L45,71 C47,71 49,70 50,68 L54,55 Z" fill="url(#cacaoGrad)" />
+    <!-- Pregas da Forminha -->
+    <line x1="32" y1="55" x2="34" y2="71" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <line x1="37" y1="55" x2="38" y2="71" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <line x1="43" y1="55" x2="42" y2="71" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <line x1="48" y1="55" x2="46" y2="71" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+  </g>
+
+  <!-- Tipografia Refinada -->
+  <g transform="translate(108, 22)">
+    <!-- Nome Principal: LE CUPCAKE -->
+    <text x="0" y="32" font-family="'Playfair Display', Georgia, serif" font-size="30" font-weight="700" letter-spacing="1.5" fill="url(#cacaoGrad)">
+      Le Cupcake
+    </text>
+    
+    <!-- Linha Divisória Dourada com Estrela Central -->
+    <line x1="0" y1="42" x2="95" y2="42" stroke="url(#goldGrad)" stroke-width="1" />
+    <circle cx="102" cy="42" r="2.5" fill="url(#goldGrad)" />
+    <line x1="109" y1="42" x2="240" y2="42" stroke="url(#goldGrad)" stroke-width="1" />
+
+    <!-- Subtítulo de Haute Pâtisserie -->
+    <text x="0" y="55" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="3.5" fill="#8C5847">
+      HAUTE PÂTISSERIE GOURMET
+    </text>
+  </g>
+</svg>

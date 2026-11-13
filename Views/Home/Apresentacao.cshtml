@@ -1,0 +1,97 @@
+@{
+    ViewData["Title"] = "Apresentação da Marca - Conheça a Le Cupcake";
+}
+
+<div class="apresentacao-container">
+    <!-- Hero Banner Institucional -->
+    <section class="brand-hero">
+        <div class="brand-hero-badge">Haute Pâtisserie Artesanale</div>
+        <h1 class="brand-hero-title">A Essência da Confeitaria Fina em Cada Mordida</h1>
+        <p class="brand-hero-subtitle">
+            Mais do que um doce, uma experiência sensorial inesquecível feita à mão com ingredientes nobres e amor pela gastronomia.
+        </p>
+        <div class="brand-hero-actions">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg">
+                🧁 Explorar Vitrine de Sabores
+            </a>
+            <a href="#pilares" class="btn btn-outline btn-lg">
+                ✨ Nossos Diferenciais
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção: Nossa História -->
+    <section class="brand-story-section">
+        <div class="brand-story-grid">
+            <div class="brand-story-content">
+                <span class="section-subtitle">Nossa Origem</span>
+                <h2 class="section-title">Nascida da Paixão pelo Sabor Artesanal</h2>
+                <p>
+                    A <strong>Le Cupcake Gourmet</strong> nasceu do desejo de transformar pequenos momentos em celebrações memoráveis. Acreditamos que a verdadeira confeitaria reside na harmonia perfeita entre massas amanteigadas fofinhas, recheios generosos e coberturas aveludadas que derretem na boca.
+                </p>
+                <p>
+                    Cada cupcake do nosso catálogo foi desenvolvido através de um rigoroso processo gastronômico, testando proporções milimetricamente dosadas para garantir leveza, dulçor equilibrado e texturas ricas.
+                </p>
+                <div class="brand-quote">
+                    <em>"Nossa missão é levar afeto, requinte e sofisticação gastronômica até a porta da sua casa em minutos."</em>
+                </div>
+            </div>
+            <div class="brand-story-card">
+                <div class="story-card-inner">
+                    <div class="story-emblem">🧁</div>
+                    <h3>Alta Gastronomia</h3>
+                    <p>Produção 100% diária com massas assadas poucas horas antes de serem entregues quentinhas e macias.</p>
+                    <hr style="border: none; border-top: 1px dashed #EADED7; margin: 15px 0;">
+                    <ul class="story-highlights">
+                        <li>✔ Zero conservantes químicos artificiais</li>
+                        <li>✔ Cacau e avelãs de produtores selecionados</li>
+                        <li>✔ Embalagens térmicas individuais lacradas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Nossos Pilares de Qualidade -->
+    <section id="pilares" class="brand-pillars-section">
+        <div class="menu-header">
+            <span class="section-subtitle">Padrão de Excelência</span>
+            <h3 class="section-title">Os 4 Pilares da Nossa Confeitaria</h3>
+            <p class="section-desc">Garantimos o mais alto padrão de qualidade desde a seleção das matérias-primas até a entrega final.</p>
+        </div>
+
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-icon">🍫</div>
+                <h4>Matérias-Primas Nobres</h4>
+                <p>Utilizamos cacau belga 100%, pasta pura de avelã Nutella, leite Ninho integral e favas aromáticas de baunilha.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">🥣</div>
+                <h4>Receituário Exclusivo</h4>
+                <p>Equilíbrio ideal entre massas amanteigadas úmidas e coberturas cremosas sem dulçor excessivo.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">⚡</div>
+                <h4>Entrega Expressa Local</h4>
+                <p>Taxa fixa de R$ 6,00 com atendimento rápido em 15 a 30 minutos em embalagens térmicas lacradas.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">🔒</div>
+                <h4>Segurança & Rastreabilidade</h4>
+                <p>Ambiente de checkout protegido, pagamentos instantâneos via PIX e rastreamento de status em tempo real.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner de Chamada para o Cardápio Oficial -->
+    <section class="brand-cta-banner">
+        <div class="cta-inner">
+            <h2>Pronto para Viver Essa Experiência Gourmet?</h2>
+            <p>Conheça os nossos 5 sabores selecionados e faça o seu pedido agora mesmo com entrega rápida.</p>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg" style="box-shadow: 0 4px 15px rgba(197, 155, 39, 0.4);">
+                🛒 Ir para o Cardápio de Cupcakes
+            </a>
+        </div>
+    </section>
+</div>

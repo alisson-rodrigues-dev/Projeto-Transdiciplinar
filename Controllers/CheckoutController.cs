@@ -62,6 +62,14 @@ public class CheckoutController : Controller
 
         model.Carrinho = cart;
 
+        // V2: Bloqueio estrito de pagamento PIX sem autenticação prévia
+        var sessaoCliId = HttpContext.Session.GetInt32(ContaController.SessionUsuarioId);
+        if (model.FormaPagamento == "PIX" && !sessaoCliId.HasValue)
+        {
+            TempData["Erro"] = "Para pagar via PIX e gerar o QR Code de cobrança oficial, faça login ou cadastre-se previamente.";
+            return RedirectToAction("Login", "Conta", new { returnUrl = "/Checkout" });
+        }
+
         if (!ModelState.IsValid)
         {
             return View("Index", model);
@@ -69,7 +77,6 @@ public class CheckoutController : Controller
 
         // 1. Identificar ou cadastrar o cliente automaticamente
         int clienteId;
-        var sessaoCliId = HttpContext.Session.GetInt32(ContaController.SessionUsuarioId);
         if (sessaoCliId.HasValue)
         {
             clienteId = sessaoCliId.Value;
