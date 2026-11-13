@@ -177,20 +177,43 @@ function copiarChavePix() {
     }
 }
 
+// Função global para toggle do menu de navegação responsivo
+function toggleNavMenu() {
+    const navMenu = document.getElementById('navMenu');
+    const navToggleBtn = document.getElementById('navToggleBtn');
+    if (navMenu) {
+        navMenu.classList.toggle('show');
+    }
+    if (navToggleBtn) {
+        navToggleBtn.classList.toggle('active');
+    }
+}
+
 // Menu Hamburguer Responsivo para Telas Menores
 function initResponsiveNav() {
     const navToggleBtn = document.getElementById('navToggleBtn');
     const navMenu = document.getElementById('navMenu');
-    if (!navToggleBtn || !navMenu) return;
+    if (!navMenu) return;
 
-    navToggleBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        navMenu.classList.toggle('show');
+    if (navToggleBtn) {
+        navToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+    // Fechar gaveta ao clicar em qualquer link
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('show');
+            if (navToggleBtn) navToggleBtn.classList.remove('active');
+        });
     });
 
+    // Fechar ao clicar fora do menu
     document.addEventListener('click', (e) => {
-        if (!navMenu.contains(e.target) && !navToggleBtn.contains(e.target)) {
+        if (!navMenu.contains(e.target) && navToggleBtn && !navToggleBtn.contains(e.target)) {
             navMenu.classList.remove('show');
+            navToggleBtn.classList.remove('active');
         }
     });
 }

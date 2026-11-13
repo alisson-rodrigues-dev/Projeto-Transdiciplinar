@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS Customizado Gourmet -->
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
     <!-- Topbar Acadêmica Institucional -->
@@ -39,13 +39,17 @@
     <header class="site-header">
         <div class="site-container">
             <nav class="site-nav">
-                <!-- Marca / Logo Profissional (Direciona para a Apresentação da Marca na V2) -->
+                <!-- Marca / Logo Oficial (Direciona para a Apresentação da Marca na V2) -->
                 <a asp-controller="Home" asp-action="Apresentacao" class="brand-logo" title="Conheça a história e apresentação da marca Le Cupcake">
-                    <img src="~/images/logo-lecupcake.svg" alt="Le Cupcake Gourmet" class="brand-logo-img" />
+                    <span class="brand-icon">🧁</span>
+                    <div class="brand-text">
+                        <h1>Le Cupcake</h1>
+                        <span>Gourmet & Artesanal</span>
+                    </div>
                 </a>
 
                 <!-- Botão Toggle Hamburguer para Dispositivos Móveis -->
-                <button type="button" class="nav-toggle-btn" id="navToggleBtn" aria-label="Abrir menu de navegação">
+                <button type="button" class="nav-toggle-btn" id="navToggleBtn" aria-label="Abrir menu de navegação" onclick="toggleNavMenu()">
                     <span class="nav-toggle-bar"></span>
                     <span class="nav-toggle-bar"></span>
                     <span class="nav-toggle-bar"></span>
@@ -159,7 +163,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="~/js/site.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
